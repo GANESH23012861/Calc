@@ -25,286 +25,156 @@ Validate the HTML and CSS code.
 Publish the website in the given URL.
 
 ## PROGRAM :
-```
+``` 
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Calculator</title>
-        
-        <script>
-        function calculate(args)
-        {
-            res = document.getElementById("result");
-            expression = res.innerText;
-            cmd = args.srcElement.innerText;
-            if(cmd == "=")
-            {
-                expression = "" + eval(expression)
-            }
-            else if(cmd == "C")
-            {
-                expression=""
-            }
-            else if(cmd == "DEL")
-            {
-                expression = expression.slice(0, -1);
+<html>
+<head>
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="b.css">
+</head>
+<body style="background-color: rgb(227, 173, 166);">
+    <div id="cal">
+        <input  id="display" readonly>
+        <div id="key">
+            
+            <button onclick="appendToDisplay('1')" >1</button>
+            <button onclick="appendToDisplay('2')" >2</button>
+            <button onclick="appendToDisplay('3')" >3</button>
+            <button onclick="appendToDisplay('+')" class="operator-btn">+</button>
 
-            }
-            else if(cmd == "√")
-            {
-                expression = "" + Math.sqrt(eval(expression));
-            }
-            else if(cmd == "%")
-            {
-                expression = expression % 1;
-            }
-            else if(cmd == "log")
-             {
-        expression = Math.log10(expression);
-           }
-       
-            else{
-                expression = expression + cmd;
-            }
-            res.innerText = expression;
+            <button onclick="appendToDisplay('4')" >4</button>
+            <button onclick="appendToDisplay('5')" >5</button>
+            <button onclick="appendToDisplay('6')" >6</button>
+            <button onclick="appendToDisplay('-')" class="operator-btn">-</button>
             
 
-        }
-         
-        </script>
-
-        <style>
-          
-            .calculator-container {
-                width: 400px;
-                background-color:rgb(55, 68, 52);
-                margin: 0 auto; 
-                margin-top: 230px;
-                text-align: center;
-                
-            }
-
-           
-            button {
-                width: 50px;
-                height: 50px;
-                margin: 10px; 
-                font-size: 20px; 
-                
-                background-color:brown; 
-                color: white; 
-                border: none;
-            }
-
-          
-            #result {
-                
-       background-color:cyan;
-    text-align: right;
-    padding-right: 50px;
-    font-size: 20px;
-    margin-bottom: 20px; 
-    border: solid black 0.5px;
-    color: black;
-    width: 348px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-            }
-            h1 {
-                padding-top: 10px;
-                color:white;
-                font-size: 50px;
-            }
-            .redd {
-                background-color:rgb(11, 194, 218);
-                color: rgb(195, 14, 14)
-            }
-            .bluee {
-                
-                background-color:rgb(18, 46, 203);
-                color: rgb(218, 188, 188);
-                font-size: 17px;
-            }
-            body {
-                background-color:rgb(67, 7, 132);
-            }
-        </style>
-
-    </head>
-<body>
-    <div class="calculator-container">
-        <h1>SELVA GANESH R</h1>
-        <h2>REG NO=212223230200</h2>
-        <div id="result">0</div>
-        <button onclick="calculate(event);">7</button>
-        <button onclick="calculate(event);">8</button>
-        <button onclick="calculate(event);">9</button>
-        <button class="bluee"  onclick="calculate(event);">/</button>
-        <button class="bluee"  onclick="calculate(event);"> DEL </button><br>
-        <button onclick="calculate(event);">4</button>
-        <button onclick="calculate(event);">5</button>
-        <button onclick="calculate(event);">6</button>
-        <button class="bluee"  onclick="calculate(event);">*</button>
-        <button class="bluee"  onclick="calculate(event);">&radic; </button><br>
-        <button onclick="calculate(event);">1</button>
-        <button onclick="calculate(event);">2</button>
-        <button onclick="calculate(event);">3</button>
-        <button class="bluee"  onclick="calculate(event);">-</button>
-        <button class="bluee"  onclick="calculate(event);">log</button><br>
-        <button onclick="calculate(event);">0</button>
-        <button onclick="calculate(event);">.</button>
-        <button class="redd" onclick="calculate(event);">C</button>
-        <button class="bluee"  onclick="calculate(event);">+</button>
-        <button class="bluee" onclick="calculate(event);">=</button><br>
-    </div>
-    </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Calculator</title>
-        
-        <script>
-        function calculate(args)
-        {
-            res = document.getElementById("result");
-            expression = res.innerText;
-            cmd = args.srcElement.innerText;
-            if(cmd == "=")
-            {
-                expression = "" + eval(expression)
-            }
-            else if(cmd == "C")
-            {
-                expression=""
-            }
-            else if(cmd == "DEL")
-            {
-                expression = expression.slice(0, -1);
-
-            }
-            else if(cmd == "√")
-            {
-                expression = "" + Math.sqrt(eval(expression));
-            }
-            else if(cmd == "%")
-            {
-                expression = expression % 1;
-            }
-            else if(cmd == "log")
-             {
-        expression = Math.log10(expression);
-           }
-       
-            else{
-                expression = expression + cmd;
-            }
-            res.innerText = expression;
+            <button onclick="appendToDisplay('7')" >7</button>
+            <button onclick="appendToDisplay('8')" >8</button>
+            <button onclick="appendToDisplay('9')" >9</button>
+            <button onclick="appendToDisplay('*')" class="operator-btn">*</button>
             
+            <button onclick="cleardisplay()" class="operator-btn">C</button>
+            <button onclick="appendToDisplay('0')" >0</button>
+            <button onclick="appendToDisplay('.')" >.</button>
+            <button onclick="appendToDisplay('/')" class="operator-btn">/</button>
+            <button onclick="calculate()" class="a operator-btn">=</button>
 
-        }
-         
-        </script>
 
-        <style>
-          
-            .calculator-container {
-                width: 400px;
-                background-color:rgb(55, 68, 52);
-                margin: 0 auto; 
-                margin-top: 230px;
-                text-align: center;
-                
-            }
-
-           
-            button {
-                width: 50px;
-                height: 50px;
-                margin: 10px; 
-                font-size: 20px; 
-                
-                background-color:brown; 
-                color: white; 
-                border: none;
-            }
-
-          
-            #result {
-                
-       background-color:cyan;
-    text-align: right;
-    padding-right: 50px;
-    font-size: 20px;
-    margin-bottom: 20px; 
-    border: solid black 0.5px;
-    color: black;
-    width: 348px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-            }
-            h1 {
-                padding-top: 10px;
-                color:white;
-                font-size: 50px;
-            }
-            .redd {
-                background-color:rgb(11, 194, 218);
-                color: rgb(195, 14, 14)
-            }
-            .bluee {
-                
-                background-color:rgb(18, 46, 203);
-                color: rgb(218, 188, 188);
-                font-size: 17px;
-            }
-            body {
-                background-color:rgb(67, 7, 132);
-            }
-        </style>
-
-    </head>
-<body>
-    <div class="calculator-container">
-        <h1>SELVA GANESH R</h1>
-        <h2>REG NO=212223230200</h2>
-        <div id="result">0</div>
-        <button onclick="calculate(event);">7</button>
-        <button onclick="calculate(event);">8</button>
-        <button onclick="calculate(event);">9</button>
-        <button class="bluee"  onclick="calculate(event);">/</button>
-        <button class="bluee"  onclick="calculate(event);"> DEL </button><br>
-        <button onclick="calculate(event);">4</button>
-        <button onclick="calculate(event);">5</button>
-        <button onclick="calculate(event);">6</button>
-        <button class="bluee"  onclick="calculate(event);">*</button>
-        <button class="bluee"  onclick="calculate(event);">&radic; </button><br>
-        <button onclick="calculate(event);">1</button>
-        <button onclick="calculate(event);">2</button>
-        <button onclick="calculate(event);">3</button>
-        <button class="bluee"  onclick="calculate(event);">-</button>
-        <button class="bluee"  onclick="calculate(event);">log</button><br>
-        <button onclick="calculate(event);">0</button>
-        <button onclick="calculate(event);">.</button>
-        <button class="redd" onclick="calculate(event);">C</button>
-        <button class="bluee"  onclick="calculate(event);">+</button>
-        <button class="bluee" onclick="calculate(event);">=</button><br>
+            
+        </div>
     </div>
-    </body>
+    <script src="c.js"></script>
+</body>
 </html>
+CSS
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(0, 0, 0);
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(255, 255, 255);
+    transition: 2s;
+}
+
+button:active {
+    background-color: rgb(0, 0, 0);
+}
+
+#key {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+}
+
+#cal {
+    font-family: 'Times New Roman';
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    max-width: 470px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#display {
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: hsl(0, 0%, 0%);
+    color: rgb(255, 255, 255);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.operator-btn {
+    background-color: hsl(173, 4%, 59%);
+}
+
+.operator-btn:hover {
+    background-color: hsl(0, 0%, 0%);
+}
+
+.operator-btn:active {
+    background-color: hsl(0, 0%, 0%);
+}
+#key {
+    justify-content: end;
+}
+.a{
+    position: relative;
+    top: 10px;
+    left: 330px;
+}
+.b{
+    position: relative;
+    left: 10px;
+    top:5px;
+}
+JS
+var display = document.getElementById("display");
+
+function appendToDisplay(input) {
+    display.value += input;
+}
+
+function cleardisplay() {
+    display.value = "";
+}
+
+function calculate() {
+    try {
+        display.value = eval(display.value);
+    } catch(error) {
+        display.value = "Error";
+    }
+}
 
 
 ```
 ## OUTPUT:
-![Screenshot 2024-05-08 205748](https://github.com/GANESH23012861/Calc/assets/147139861/d9071150-2fbd-49b5-8867-7f01fc066bcd)
-![Screenshot 2024-05-08 205759](https://github.com/GANESH23012861/Calc/assets/147139861/1194a142-068e-4ad3-b665-a5bae46076a0)
 
+ ![image](https://github.com/GANESH23012861/Calc/assets/147139861/9dd7d177-c82e-4e51-9c6a-74c098f88373)
+
+
+![image](https://github.com/GANESH23012861/Calc/assets/147139861/f6a9318c-8351-4fd3-a786-237cccc9e44a)
 
 ## RESULT:
 The program for designing a standard calculator using HTML and CSS is executed successfully.
